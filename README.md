@@ -2,7 +2,8 @@
 
 This is a test project, more details to come if it works.
 
-Right now we are testing some TDD with Eclipse and gtest on multiple platforms.
+Right now we are testing some TDD with Eclipse and gtest on multiple platforms. Also testing git, especially
+"git fetch upstream".
 
 # Build notes
 
