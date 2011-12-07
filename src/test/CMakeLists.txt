@@ -25,11 +25,13 @@ if(NOT DEFINED GMOCK_INCLUDE_DIR)
 	MESSAGE(SEND_ERROR "Google mock include path not Set to GMOCK_INCLUDE_DIR")	
 endif()	
 
-  set(SRC_DIR ${TDMSREADER_SOURCE_DIR}/src)
-
+  set(SRC_DIR ${HEATSIM_SOURCE_DIR}/src)
+  include_directories(${SRC_DIR})
 
   add_executable(heatSimTest
       test.cpp
+      TersoffPotentialTest.cpp
+      ${SRC_DIR}/TersoffPotential.cpp
   )
   target_link_libraries(heatSimTest ${GTEST_BOTH_LIBRARIES})
 
