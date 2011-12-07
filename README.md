@@ -2,6 +2,7 @@
 
 This is a test project, more details to come if it works.
 
+Right now we are testing some TDD with Eclipse and gtest on multiple platforms.
 
 # Build notes
 
