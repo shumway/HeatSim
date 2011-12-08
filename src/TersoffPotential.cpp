@@ -15,6 +15,9 @@ void TersoffPotential::initializeForGermainium() {
     repulsiveDecay = 2.4451 * angstromPerBohr;
 	attractiveDecay = 1.7047 * angstromPerBohr;
 	inverseCutoffDifference = 1./(outerCutoff-innerCutoff);
+	c2 = pow(1.0643e5, 2);
+	d2 = pow(1.5652e1, 2);
+	h = -4.3884e-1;
 }
 
 double TersoffPotential::evalCutoffTerm(double r) const {
@@ -25,6 +28,10 @@ double TersoffPotential::evalCutoffTerm(double r) const {
 	} else {
         return 0.0;
 	}
+}
+
+double TersoffPotential::evalAngularTerm(double cosTheta) const {
+    return 1.0 + c2/d2 - c2 / ( d2 + (h-cosTheta)*(h-cosTheta) );
 }
 
 double TersoffPotential::evalRadialPotential(double r) const {

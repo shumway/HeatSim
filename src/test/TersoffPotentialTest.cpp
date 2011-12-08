@@ -74,17 +74,18 @@ TEST_F(TersoffPotentialTest, TestCutoffPastOuterCutoff) {
     ASSERT_DOUBLE_EQ(0., value);
 }
 
-TEST_F(TersoffPotentialTest, TestRadialPotentialAtOrigin) {
-	double value = tersoff->evalRadialPotential(0.0);
-	ASSERT_DOUBLE_EQ(49.60311481263218, value);
-}
 
 TEST_F(TersoffPotentialTest, TestRadialPotentialAtInnerCutoff) {
 	double r = tersoff->getInnerCutoff();
+	double cosTheta = -1.0/3.0;
 	double value = tersoff->evalRadialPotential(r);
 	ASSERT_NEAR(-0.061108622898086933, value, 1e-15);
 }
 
-
+TEST_F(TersoffPotentialTest, TestAngularTermAtEquilibrium) {
+    double cosTheta = -1.0/3.0;
+    double value = tersoff->evalAngularTerm(cosTheta);
+    ASSERT_DOUBLE_EQ(2101.8199792280793, value);
+}
 
 }

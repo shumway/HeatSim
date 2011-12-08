@@ -6,8 +6,10 @@ public:
 
 	TersoffPotential();
 
-	double evalCutoffTerm(double r) const;
 	double evalRadialPotential(double r) const;
+
+	double evalCutoffTerm(double r) const;
+	double evalAngularTerm(double cosTheta) const;
 
 	double getInnerCutoff() const {return innerCutoff;}
 	double getOuterCutoff() const {return outerCutoff;}
@@ -22,6 +24,10 @@ private:
 	double attractiveEnergy;
 	double repulsiveDecay;
 	double attractiveDecay;
+
+	double c2;
+	double d2;
+	double h;
 
 	void initializeForGermainium();
 
