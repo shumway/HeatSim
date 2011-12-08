@@ -31,6 +31,8 @@ endif()
   add_executable(heatSimTest
       TersoffPotentialTest.cpp
       ${SRC_DIR}/TersoffPotential.cpp
+      DispersionCurveWriterTest.cpp
+      ${SRC_DIR}/DispersionCurveWriter.cpp      
   )
   target_link_libraries(heatSimTest ${GTEST_BOTH_LIBRARIES})
 
