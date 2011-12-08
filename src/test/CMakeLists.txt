@@ -32,7 +32,9 @@ endif()
       TersoffPotentialTest.cpp
       ${SRC_DIR}/TersoffPotential.cpp
       DispersionCurveWriterTest.cpp
-      ${SRC_DIR}/DispersionCurveWriter.cpp      
+      ${SRC_DIR}/DispersionCurveWriter.cpp
+      DynamicalMatrixTest.cpp
+      ${SRC_DIR}/DynamicalMatrix.cpp      
   )
   target_link_libraries(heatSimTest ${GTEST_BOTH_LIBRARIES})
 
