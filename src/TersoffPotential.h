@@ -6,13 +6,18 @@ public:
 
 	TersoffPotential();
 
-	double evalRadialPotential(double r) const;
-
-	double evalCutoffTerm(double r) const;
-	double evalAngularTerm(double cosTheta) const;
+	double evalPotential(double r,
+			double r1, double cosTheta1,
+			double r2, double cosTheta2,
+			double r3, double cosTheta3) const;
 
 	double getInnerCutoff() const {return innerCutoff;}
 	double getOuterCutoff() const {return outerCutoff;}
+
+	double evalCutoffTerm(double r) const;
+	double evalAngularTerm(double cosTheta) const;
+    double evalBTerm(double r1, double cosTheta1,
+    		double r2, double cosTheta2, double r3, double cosTheta3) const;
 
 private:
 
@@ -28,6 +33,8 @@ private:
 	double c2;
 	double d2;
 	double h;
+	double exponent;
+	double beta;
 
 	void initializeForGermainium();
 
