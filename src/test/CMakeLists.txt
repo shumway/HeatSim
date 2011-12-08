@@ -34,7 +34,9 @@ endif()
       DispersionCurveWriterTest.cpp
       ${SRC_DIR}/DispersionCurveWriter.cpp
       DynamicalMatrixTest.cpp
-      ${SRC_DIR}/DynamicalMatrix.cpp      
+      ${SRC_DIR}/DynamicalMatrix.cpp
+      CoordinatesTest.cpp
+      ${SRC_DIR}/Coordinates.cpp      
   )
   target_link_libraries(heatSimTest ${GTEST_BOTH_LIBRARIES})
 
