@@ -29,7 +29,6 @@ endif()
   include_directories(${SRC_DIR})
 
   add_executable(heatSimTest
-      test.cpp
       TersoffPotentialTest.cpp
       ${SRC_DIR}/TersoffPotential.cpp
   )
