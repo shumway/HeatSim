@@ -22,7 +22,7 @@ find_path(GMOCK_INCLUDE_DIR gmock/gmock.h
         ${GMOCK_ROOT}/include
 )
 if(NOT DEFINED GMOCK_INCLUDE_DIR)
-	MESSAGE(SEND_ERROR "Google mock include path not Set to GMOCK_INCLUDE_DIR")	
+	MESSAGE(SEND_ERROR "Google mock include path not set to GMOCK_INCLUDE_DIR")	
 endif()	
 
   set(SRC_DIR ${HEATSIM_SOURCE_DIR}/src)
@@ -31,6 +31,7 @@ endif()
   add_executable(heatSimTest
       TersoffPotentialTest.cpp
       ${SRC_DIR}/TersoffPotential.cpp
+      ${SRC_DIR}/TersoffBond.cpp
       DispersionCurveWriterTest.cpp
       ${SRC_DIR}/DispersionCurveWriter.cpp
       DynamicalMatrixTest.cpp

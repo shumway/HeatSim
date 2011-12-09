@@ -43,7 +43,7 @@ TEST_F(MatrixTest, testEigenvalues) {
     EigenvalueSolution* solution = matrix->diagonalize();
     double expect[] = {-0.5157294715892572,  0.1709151888271787, 11.3448142827620835};
     for (int i = 0; i < size; ++i) {
-        ASSERT_DOUBLE_EQ(expect[i], solution->getEigenvalue(i));
+        ASSERT_NEAR(expect[i], solution->getEigenvalue(i), 1e-13);
     }
     delete solution;
 }

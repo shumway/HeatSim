@@ -1,13 +1,14 @@
 #ifndef __TersoffPotential_h_
 #define __TersoffPotential_h_
 
+class TersoffBond;
+
 class TersoffPotential {
 public:
 
     TersoffPotential();
 
-    double evalPotential(double r, double r1, double cosTheta1, double r2,
-            double cosTheta2, double r3, double cosTheta3) const;
+    double evalPotential(const TersoffBond&) const;
 
     double getInnerCutoff() const {
         return innerCutoff;
@@ -18,8 +19,7 @@ public:
 
     double evalCutoffTerm(double r) const;
     double evalAngularTerm(double cosTheta) const;
-    double evalBTerm(double r1, double cosTheta1, double r2, double cosTheta2,
-            double r3, double cosTheta3) const;
+    double evalBTerm(const TersoffBond& bond) const;
 
 private:
 

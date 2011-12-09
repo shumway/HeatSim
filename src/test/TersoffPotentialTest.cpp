@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 
 #include "TersoffPotential.h"
+#include "TersoffBond.h"
 
 namespace {
 
@@ -16,6 +17,7 @@ protected:
     }
 
     TersoffPotential* tersoff;
+    TersoffBond bond;
 };
 
 TEST_F(TersoffPotentialTest, TestCutoffAtZero) {
@@ -80,17 +82,14 @@ TEST_F(TersoffPotentialTest, TestAngularTermAtEquilibrium) {
 }
 
 TEST_F(TersoffPotentialTest, TestBTermAtInnerCutoff) {
-    double r = tersoff->getInnerCutoff();
-    double cosTheta = -1.0 / 3.0;
-    double value = tersoff->evalBTerm(r, cosTheta, r, cosTheta, r, cosTheta);
+    bond.r0 = bond.r1 = bond.r2 = bond.r3 = tersoff->getInnerCutoff();;
+    double value = tersoff->evalBTerm(bond);
     ASSERT_NEAR(0.9869646584254396, value, 1e-14);
 }
 
 TEST_F(TersoffPotentialTest, TestPotentialAtInnerCutoff) {
-    double r = tersoff->getInnerCutoff();
-    double cosTheta = -1.0 / 3.0;
-    double value = tersoff->evalPotential(r, r, cosTheta, r, cosTheta, r,
-            cosTheta);
+    bond.r0 = bond.r1 = bond.r2 = bond.r3 = tersoff->getInnerCutoff();
+    double value = tersoff->evalPotential(bond);
     ASSERT_NEAR(-0.059410899644855582, value, 1e-14);
 }
 
