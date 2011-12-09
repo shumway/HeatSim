@@ -4,7 +4,8 @@ project (HEATSIM)
 set (HEATSIM_VERSION_MAJOR 0)
 set (HEATSIM_VERSION_MINOR 1)
 
-find_package(LAPACK REQUIRED)
+
+find_package(LAPACK)
 
 if(LAPACK_FOUND)
   message("Found Lapack")

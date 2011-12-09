@@ -2,10 +2,10 @@
 #include "EigenvalueSolution.h"
 #include <complex>
 
-extern "C" void zhpev_(const char *jobz, const char *uplo, const int *n,
-  const std::complex<double>* ap, const double *w,
-  std::complex<double>* z, const int *ldz, std::complex<double> *work,
-  const double *rwork, const int *info);
+//extern "C" void zhpev_(const char *jobz, const char *uplo, const int *n,
+//  const std::complex<double>* ap, const double *w,
+//  std::complex<double>* z, const int *ldz, std::complex<double> *work,
+//  const double *rwork, const int *info);
 
 extern "C" void dsyev_(const char *jobz, const char *uplo, const int *n,
   const double* a, const int* lda,const double *w,
@@ -36,8 +36,9 @@ EigenvalueSolution* Matrix::diagonalize() const {
     const char jobz='V', uplo='U';
     int info;
     int lwork = 10*size;
-    double work[lwork];
+    double* work = new double[lwork];
     dsyev_(&jobz, &uplo, &size, eigenvectors, &size, eigenvalues,
            work, &lwork, &info);
+    delete [] work;
     return solution;
 }

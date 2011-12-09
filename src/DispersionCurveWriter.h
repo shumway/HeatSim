@@ -1,7 +1,7 @@
 #ifndef __DispersionCurveWriter_h_
 #define __DispersionCurveWriter_h_
 
-#include <iostream>;
+#include <iostream>
 
 class DispersionCurveWriter {
 public:
