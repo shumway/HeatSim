@@ -4,25 +4,24 @@
 
 namespace {
 
-class DynamicalMatrixTest : public ::testing::Test {
+class DynamicalMatrixTest: public ::testing::Test {
 protected:
 
-	virtual void SetUp() {
-		matrix = new DynamicalMatrix();
-		matrix->setPotential(0);
-		matrix->setCoordinates(0);
-	}
+    virtual void SetUp() {
+        matrix = new DynamicalMatrix();
+        matrix->setPotential(0);
+        matrix->setCoordinates(0);
+    }
 
-	virtual void TearDown() {
-		delete matrix;
-	}
+    virtual void TearDown() {
+        delete matrix;
+    }
 
-	DynamicalMatrix* matrix;
+    DynamicalMatrix* matrix;
 };
 
 TEST_F(DynamicalMatrixTest, testSetup) {
-	matrix->initialize();
+    matrix->initialize();
 }
-
 
 }

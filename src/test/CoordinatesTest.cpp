@@ -4,18 +4,18 @@
 
 namespace {
 
-class CoordinatesTest : public ::testing::Test {
+class CoordinatesTest: public ::testing::Test {
 protected:
 
-	virtual void SetUp() {
-		coordinates = new Coordinates();
-	}
+    virtual void SetUp() {
+        coordinates = new Coordinates();
+    }
 
-	virtual void TearDown() {
-		delete coordinates;
-	}
+    virtual void TearDown() {
+        delete coordinates;
+    }
 
-	Coordinates* coordinates;
+    Coordinates* coordinates;
 };
 
 TEST_F(CoordinatesTest, testReadPoscarFile) {
@@ -29,10 +29,8 @@ TEST_F(CoordinatesTest, testReadPoscarFile) {
     infile.str() += "2";
     infile.str() += "Ge 0 0 0\n";
     infile.str() += "Ge 0.25 0.25 0.25\n";
-	coordinates->read(infile);
-
+    coordinates->read(infile);
 
 }
-
 
 }

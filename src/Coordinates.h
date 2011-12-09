@@ -5,13 +5,13 @@
 
 class Coordinates {
 public:
-	Coordinates();
-	~Coordinates();
+    Coordinates();
+    ~Coordinates();
 
-	void read(std::istream&);
+    void read(std::istream&);
 
 private:
-	int npart;
+    int npart;
 };
 
 #endif

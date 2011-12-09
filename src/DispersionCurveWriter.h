@@ -5,8 +5,8 @@
 
 class DispersionCurveWriter {
 public:
-	DispersionCurveWriter();
-	~DispersionCurveWriter();
+    DispersionCurveWriter();
+    ~DispersionCurveWriter();
 
     void write(std::ostream&) const;
     void setKPointCount(int n);
@@ -18,6 +18,5 @@ private:
     void writeDataLine(std::ostream & stream, int i) const;
     void setOStreamFormat(std::ostream & stream) const;
 };
-
 
 #endif

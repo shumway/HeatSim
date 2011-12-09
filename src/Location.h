@@ -3,9 +3,9 @@
 
 class Location {
 public:
-	double x;
-	double y;
-	double z;
+    double x;
+    double y;
+    double z;
 };
 
 #endif

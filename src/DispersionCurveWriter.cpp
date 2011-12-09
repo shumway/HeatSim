@@ -18,18 +18,18 @@ void DispersionCurveWriter::write(std::ostream &stream) const {
 
 void DispersionCurveWriter::writeDataLine(std::ostream & stream, int i) const {
     stream << i;
-    for (int j = 0;j < bandCount;++j){
+    for (int j = 0; j < bandCount; ++j) {
         stream << " " << 0.0;
     }
     stream << std::endl;
 }
 
 void DispersionCurveWriter::setKPointCount(int n) {
-	kPointCount = n;
+    kPointCount = n;
 }
 
 void DispersionCurveWriter::setBandCount(int n) {
-	bandCount = n;
+    bandCount = n;
 }
 
 void DispersionCurveWriter::setOStreamFormat(std::ostream & stream) const {

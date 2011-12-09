@@ -1,7 +1,7 @@
 #include "Coordinates.h"
 
-Coordinates::Coordinates()
-  : npart(0) {
+Coordinates::Coordinates() :
+        npart(0) {
 }
 
 Coordinates::~Coordinates() {
@@ -10,5 +10,4 @@ Coordinates::~Coordinates() {
 void Coordinates::read(std::istream& instream) {
 
 }
-
 

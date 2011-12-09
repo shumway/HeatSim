@@ -36,9 +36,14 @@ endif()
       DynamicalMatrixTest.cpp
       ${SRC_DIR}/DynamicalMatrix.cpp
       CoordinatesTest.cpp
-      ${SRC_DIR}/Coordinates.cpp      
+      ${SRC_DIR}/Coordinates.cpp
+      MatrixTest.cpp
+      ${SRC_DIR}/Matrix.cpp
+      ${SRC_DIR}/EigenvalueSolution.cpp  
   )
   target_link_libraries(heatSimTest ${GTEST_BOTH_LIBRARIES})
+  target_link_libraries(heatSimTest ${LAPACK_LIBRARIES})
+  
 
 else()
   message(AUTHOR_WARNING "GTEST not found, unit testing not enabled") 

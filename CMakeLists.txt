@@ -4,6 +4,13 @@ project (HEATSIM)
 set (HEATSIM_VERSION_MAJOR 0)
 set (HEATSIM_VERSION_MINOR 1)
 
+find_package(LAPACK REQUIRED)
+
+if(LAPACK_FOUND)
+  message("Found Lapack")
+  message("Lapack link library is ${LAPACK_LIBRARIES}")
+endif()
+
 configure_file (
   "${HEATSIM_SOURCE_DIR}/config.h.in"
   "${HEATSIM_BINARY_DIR}/config.h"

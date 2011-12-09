@@ -6,16 +6,16 @@ class Coordinates;
 
 class DynamicalMatrix {
 public:
-	DynamicalMatrix();
-	~DynamicalMatrix();
+    DynamicalMatrix();
+    ~DynamicalMatrix();
 
-	void initialize();
-	void setPotential(const Potential*);
-	void setCoordinates(Coordinates*);
+    void initialize();
+    void setPotential(const Potential*);
+    void setCoordinates(Coordinates*);
 
 private:
-	const Potential *potential;
-	Coordinates *coordinates;
+    const Potential *potential;
+    Coordinates *coordinates;
 };
 
 #endif

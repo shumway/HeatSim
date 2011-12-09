@@ -10,9 +10,9 @@ void DynamicalMatrix::initialize() {
 }
 
 void DynamicalMatrix::setPotential(const Potential *potential) {
-	this->potential = potential;
+    this->potential = potential;
 }
 
 void DynamicalMatrix::setCoordinates(Coordinates *coordinates) {
-	this->coordinates = coordinates;
+    this->coordinates = coordinates;
 }
