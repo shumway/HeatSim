@@ -1,3 +1,4 @@
+set(GTEST_FOUND "")
 find_package(GTest QUIET)
 
 if(GTEST_FOUND)
@@ -51,5 +52,5 @@ endif()
   endif()
 
 else()
-  message(AUTHOR_WARNING "GTEST not found, unit testing not enabled") 
-endif()
+  message(AUTHOR_WARNING "** GTEST not found, unit testing not enabled") 
+endif(GTEST_FOUND)

@@ -22,7 +22,7 @@ if(NOT EXISTS ${LAPACK_LIB})
     message(FATAL_ERROR "** heatSim requires the LAPACK libary")
 else()
     message("Found LAPACK: " ${LAPACK_LIB})
-endif()
+endif(NOT EXISTS ${LAPACK_LIB})
 
 find_library(BLAS_LIB
 NAMES
@@ -43,7 +43,7 @@ if(NOT EXISTS ${BLAS_LIB})
     message(FATAL_ERROR "** heatSim requires the BLAS libary")
 else()
     message("Found BLAS: " ${BLAS_LIB})    
-endif()
+endif(NOT EXISTS ${BLAS_LIB})
 
 find_library(LIBF2C_LIB
 NAMES
