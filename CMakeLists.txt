@@ -20,6 +20,8 @@ if(NOT EXISTS ${LAPACK_LIB})
     message("**   Try setting the LAPACK environtment variable")
     message("**   to the directory containing lapack")
     message(FATAL_ERROR "** heatSim requires the LAPACK libary")
+else()
+    message("Found LAPACK: " ${LAPACK_LIB})
 endif()
 
 find_library(BLAS_LIB
@@ -39,6 +41,8 @@ if(NOT EXISTS ${BLAS_LIB})
     message("**   Try setting the BLAS environtment variable")
     message("**   to the directory containing blas")
     message(FATAL_ERROR "** heatSim requires the BLAS libary")
+else()
+    message("Found BLAS: " ${BLAS_LIB})    
 endif()
 
 find_library(LIBF2C_LIB
