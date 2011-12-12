@@ -43,8 +43,12 @@ endif()
       ${SRC_DIR}/EigenvalueSolution.cpp  
   )
   target_link_libraries(heatSimTest ${GTEST_BOTH_LIBRARIES})
-  target_link_libraries(heatSimTest ${LAPACK_LIBRARIES})
   
+  target_link_libraries(heatSimTest ${BLAS_LIB})
+  target_link_libraries(heatSimTest ${LAPACK_LIB})
+  if (EXISTS ${LIBF2C_LIB})
+    target_link_libraries(heatSimTest ${LIBF2C_LIB})
+  endif()
 
 else()
   message(AUTHOR_WARNING "GTEST not found, unit testing not enabled") 
