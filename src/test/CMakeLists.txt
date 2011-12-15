@@ -41,7 +41,9 @@ endif()
       ${SRC_DIR}/Coordinates.cpp
       MatrixTest.cpp
       ${SRC_DIR}/Matrix.cpp
-      ${SRC_DIR}/EigenvalueSolution.cpp  
+      ${SRC_DIR}/EigenvalueSolution.cpp
+      NeighborListTest.cpp
+      ${SRC_DIR}/NeighborList.cpp
   )
   target_link_libraries(heatSimTest ${GTEST_BOTH_LIBRARIES})
   
