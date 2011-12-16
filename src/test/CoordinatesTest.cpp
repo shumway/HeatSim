@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include <sstream>
 #include "Coordinates.h"
+#include "Location.h"
 
 namespace {
 
@@ -8,7 +9,7 @@ class CoordinatesTest: public ::testing::Test {
 protected:
 
     virtual void SetUp() {
-        coordinates = new Coordinates();
+        coordinates = 0;
     }
 
     virtual void TearDown() {
@@ -18,19 +19,15 @@ protected:
     Coordinates* coordinates;
 };
 
-TEST_F(CoordinatesTest, testReadPoscarFile) {
-    std::stringstream infile;
-
-    infile.str() += "Some comment";
-    infile.str() += "1.0";
-    infile.str() += "2.825 2.825 0.000";
-    infile.str() += "2.825 0.000 2.825";
-    infile.str() += "0.000 2.825 2.825";
-    infile.str() += "2";
-    infile.str() += "Ge 0 0 0\n";
-    infile.str() += "Ge 0.25 0.25 0.25\n";
-    coordinates->read(infile);
-
+TEST_F(CoordinatesTest, testCreate) {
+    int npart = 2;
+    coordinates = new Coordinates(npart);
+    coordinates->setLocation(0, Location(0,0,0));
+    coordinates->setLocation(1, Location(0.25,0.25,0.25));
+    Location location0 = coordinates->getLocation(0);
+    Location location1 = coordinates->getLocation(1);
+    ASSERT_EQ(Location(0,0,0), location0);
+    ASSERT_EQ(Location(0.25,0.25,0.25), location1);
 }
 
 }

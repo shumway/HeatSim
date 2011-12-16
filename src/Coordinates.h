@@ -1,17 +1,17 @@
 #ifndef __Coordinates_h_
 #define __Coordinates_h_
 
-#include <istream>
+class Location;
 
 class Coordinates {
 public:
-    Coordinates();
+    Coordinates(int npart);
     ~Coordinates();
-
-    void read(std::istream&);
-
+    void setLocation(int index, const Location& location);
+    const Location& getLocation(int index);
 private:
     int npart;
+    Location* locations;
 };
 
 #endif

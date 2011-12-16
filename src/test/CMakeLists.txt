@@ -38,12 +38,17 @@ endif()
       DynamicalMatrixTest.cpp
       ${SRC_DIR}/DynamicalMatrix.cpp
       CoordinatesTest.cpp
+      ${SRC_DIR}/Location.cpp
       ${SRC_DIR}/Coordinates.cpp
       MatrixTest.cpp
       ${SRC_DIR}/Matrix.cpp
       ${SRC_DIR}/EigenvalueSolution.cpp
       NeighborListTest.cpp
       ${SRC_DIR}/NeighborList.cpp
+      POSCARReaderTest.cpp
+      ${SRC_DIR}/POSCARReader.cpp
+      StructureTest.cpp
+      ${SRC_DIR}/Structure.cpp
   )
   target_link_libraries(heatSimTest ${GTEST_BOTH_LIBRARIES})
   
