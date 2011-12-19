@@ -12,3 +12,11 @@ Structure::~Structure() {
 void Structure::setCoordinates(Coordinates* coordinates) {
     this->coordinates = coordinates;
 }
+
+void Structure::setLatticeVectors(const LatticeVectors* latticeVectors) {
+    this->latticeVectors = latticeVectors;
+}
+
+void Structure::setNeighborList(const NeighborList* neighborList) {
+    this->neighborList = neighborList;
+}

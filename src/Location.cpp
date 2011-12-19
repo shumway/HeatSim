@@ -13,7 +13,7 @@ bool Location::operator==(const Location& loc2) const {
 
 
 
-std::ostream& operator<<(std::ostream& os, Location loc) {
+std::ostream& operator<<(std::ostream& os, const Location& loc) {
     os << "(" << loc.x << ", " << loc.y << ", " << loc.z << ")";
     return os;
 }

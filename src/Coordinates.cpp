@@ -9,11 +9,14 @@ Coordinates::~Coordinates() {
     delete [] locations;
 }
 
-void Coordinates::setLocation(int index, const Location& location) {
+void Coordinates::setCartesianLocation(int index, const Location& location) {
     locations[index] = location;
 }
 
-const Location& Coordinates::getLocation(int index) {
+const Location& Coordinates::getLocation(int index) const {
     return locations[index];
 }
 
+int Coordinates::getAtomCount() const {
+    return npart;
+}

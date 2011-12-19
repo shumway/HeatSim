@@ -22,8 +22,8 @@ protected:
 TEST_F(CoordinatesTest, testCreate) {
     int npart = 2;
     coordinates = new Coordinates(npart);
-    coordinates->setLocation(0, Location(0,0,0));
-    coordinates->setLocation(1, Location(0.25,0.25,0.25));
+    coordinates->setCartesianLocation(0, Location(0,0,0));
+    coordinates->setCartesianLocation(1, Location(0.25,0.25,0.25));
     Location location0 = coordinates->getLocation(0);
     Location location1 = coordinates->getLocation(1);
     ASSERT_EQ(Location(0,0,0), location0);

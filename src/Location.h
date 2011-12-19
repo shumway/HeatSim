@@ -17,6 +17,6 @@ public:
 
 
 
-std::ostream& operator<<(std::ostream& os, Location loc);
+std::ostream& operator<<(std::ostream& os, const Location& loc);
 
 #endif

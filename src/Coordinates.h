@@ -7,8 +7,9 @@ class Coordinates {
 public:
     Coordinates(int npart);
     ~Coordinates();
-    void setLocation(int index, const Location& location);
-    const Location& getLocation(int index);
+    void setCartesianLocation(int index, const Location& location);
+    const Location& getLocation(int index) const;
+    int getAtomCount() const;
 private:
     int npart;
     Location* locations;
