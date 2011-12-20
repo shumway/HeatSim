@@ -1,5 +1,8 @@
 #include "Structure.h"
 #include "Coordinates.h"
+#include "LatticeVectors.h"
+#include "NeighborList.h"
+#include "Neighbor.h"
 
 Structure::Structure()
     :   coordinates(0), latticeVectors(0), neighborList(0) {
@@ -34,3 +37,4 @@ void Structure::setNeighborList(const NeighborList* neighborList) {
 const NeighborList* Structure::getNeighborList() const {
     return neighborList;
 }
+

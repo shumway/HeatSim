@@ -7,7 +7,7 @@ TersoffPotential::TersoffPotential() {
     initializeForGermainium();
 }
 
-double TersoffPotential::evalPotential(const TersoffBond& bond) const {
+double TersoffPotential::evaluatePotential(const TersoffBond& bond) const {
     double value = repulsiveEnergy * exp(-repulsiveDecay * bond.r0);
     double bterm = evalBTerm(bond);
     value -= bterm * attractiveEnergy * exp(-attractiveDecay * bond.r0);

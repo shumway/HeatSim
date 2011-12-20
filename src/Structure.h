@@ -4,6 +4,7 @@
 class Coordinates;
 class LatticeVectors;
 class NeighborList;
+class Neighbor;
 
 class Structure {
 public:

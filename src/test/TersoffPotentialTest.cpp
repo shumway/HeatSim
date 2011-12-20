@@ -89,7 +89,7 @@ TEST_F(TersoffPotentialTest, TestBTermAtInnerCutoff) {
 
 TEST_F(TersoffPotentialTest, TestPotentialAtInnerCutoff) {
     bond.r0 = bond.r1 = bond.r2 = bond.r3 = tersoff->getInnerCutoff();
-    double value = tersoff->evalPotential(bond);
+    double value = tersoff->evaluatePotential(bond);
     ASSERT_NEAR(-0.059410899644855582, value, 1e-14);
 }
 

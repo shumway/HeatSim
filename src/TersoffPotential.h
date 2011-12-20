@@ -8,7 +8,7 @@ public:
 
     TersoffPotential();
 
-    double evalPotential(const TersoffBond&) const;
+    double evaluatePotential(const TersoffBond&) const;
 
     double getInnerCutoff() const {
         return innerCutoff;

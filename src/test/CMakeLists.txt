@@ -54,6 +54,9 @@ endif()
       ${SRC_DIR}/Displacement.cpp
       TotalEnergyTest.cpp
       ${SRC_DIR}/TotalEnergy.cpp
+      StructureTest.cpp
+      ${SRC_DIR}/BondList.cpp
+      ${SRC_DIR}/BondGeometry.cpp
   )
   target_link_libraries(heatSimTest ${GTEST_BOTH_LIBRARIES})
   

@@ -1,6 +1,5 @@
 #include <gtest/gtest.h>
 #include "TotalEnergy.h"
-#include "GeStructureBuilder.h"
 #include "Structure.h"
 #include "TersoffPotential.h"
 
@@ -9,7 +8,7 @@ namespace {
 class TotalEnergyTest: public ::testing::Test {
 protected:
     virtual void SetUp() {
-        structure = GeStructureBuilder::makeNewStructure();
+        structure = makeDimer();
         potential = new TersoffPotential();
         totalEnergy = new TotalEnergy(structure, potential);
     }
@@ -23,6 +22,11 @@ protected:
     TotalEnergy* totalEnergy;
     Structure* structure;
     TersoffPotential* potential;
+
+    Structure* makeDimer() {
+        Structure* structure = new Structure();
+        return structure;
+    }
 };
 
 TEST_F(TotalEnergyTest, testInitialTotalEnergy) {

@@ -2,7 +2,7 @@
 #include "Neighbor.h"
 
 NeighborList::NeighborList(int atomCount)
-    : theList(new Neighbor[MAX_NEIGHBORS*atomCount]) {
+    : atomCount(atomCount), theList(new Neighbor[MAX_NEIGHBORS*atomCount]) {
 }
 
 NeighborList::~NeighborList() {
@@ -23,4 +23,16 @@ int NeighborList::getNeighborCount(int atomIndex) const {
         ++index;
     }
     return index;
+}
+
+int NeighborList::getNeighborCount() const {
+    int count = 0;
+    for (int i = 0; i < atomCount; ++i) {
+        count += getNeighborCount(i);
+    }
+    return count;
+}
+
+const Neighbor* NeighborList::getNeighbor(int atomIndex, int neighborIndex) const {
+    return &theList[MAX_NEIGHBORS*atomIndex + neighborIndex];
 }
