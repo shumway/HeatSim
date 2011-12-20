@@ -52,6 +52,8 @@ endif()
       ${SRC_DIR}/GeStructureBuilder.cpp
       ${SRC_DIR}/LatticeVectors.cpp
       ${SRC_DIR}/Displacement.cpp
+      TotalEnergyTest.cpp
+      ${SRC_DIR}/TotalEnergy.cpp
   )
   target_link_libraries(heatSimTest ${GTEST_BOTH_LIBRARIES})
   
