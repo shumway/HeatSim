@@ -47,9 +47,8 @@ endif()
       ${SRC_DIR}/NeighborList.cpp
       POSCARReaderTest.cpp
       ${SRC_DIR}/POSCARReader.cpp
-      StructureTest.cpp
-      ${SRC_DIR}/Structure.cpp
       GeStructureBuilderTest.cpp
+      ${SRC_DIR}/Structure.cpp
       ${SRC_DIR}/GeStructureBuilder.cpp
       ${SRC_DIR}/LatticeVectors.cpp
       ${SRC_DIR}/Displacement.cpp

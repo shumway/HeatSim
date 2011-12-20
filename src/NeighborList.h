@@ -12,7 +12,7 @@ public:
 
     void addNeighbor(int atomIndex, int neighborIndex, LatticeDisplacement delta);
 
-    int getNeighborCount(int atomIndex);
+    int getNeighborCount(int atomIndex) const;
 
 private:
     Neighbor* theList;

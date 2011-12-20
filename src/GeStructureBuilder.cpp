@@ -4,14 +4,26 @@
 #include "Location.h"
 #include "LatticeVectors.h"
 #include "NeighborList.h"
+#include "Structure.h"
 #include <cmath>
+
+Structure* GeStructureBuilder::makeNewStructure() {
+    Structure* structure = new Structure();
+    Coordinates* coordinates = makeNewCoordinates();
+    structure->setCoordinates(coordinates);
+    LatticeVectors* latticeVectors = makeNewLatticeVectors();
+    structure->setLatticeVectors(latticeVectors);
+    NeighborList* neighborList = makeNewNeighborList();
+    structure->setNeighborList(neighborList);
+    return structure;
+}
 
 Coordinates* GeStructureBuilder::makeNewCoordinates() {
     int npart = 2;
-    Coordinates* coords = new Coordinates(npart);
+    Coordinates* coordinates = new Coordinates(npart);
     double x = bondLength/sqrt(3.0);
-    coords->setCartesianLocation(1, Location(x, x, x));
-    return coords;
+    coordinates->setCartesianLocation(1, Location(x, x, x));
+    return coordinates;
 }
 
 LatticeVectors* GeStructureBuilder::makeNewLatticeVectors() {
