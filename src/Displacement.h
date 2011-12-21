@@ -21,4 +21,6 @@ public:
 
 std::ostream& operator<<(std::ostream& os, const Displacement& disp);
 
+double dot(const Displacement&, const Displacement&);
+
 #endif

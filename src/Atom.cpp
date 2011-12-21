@@ -8,7 +8,7 @@ void Atom::setNeighborCount(int neighborCount) {
     this->neighborCount = neighborCount;
 }
 
-const Displacement& Atom::getDisplacement(int index) {
+const Displacement& Atom::getDisplacement(int index) const {
     return displacement[index];
 }
 

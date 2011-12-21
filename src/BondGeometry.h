@@ -2,9 +2,8 @@
 #define BONDGEOMETRY_H_
 
 class BondList;
-class TersoffBond;
-class Neighbor;
 class Structure;
+class Atom;
 
 class BondGeometry {
 public:
@@ -19,6 +18,6 @@ public:
 
 private:
     BondList* bonds;
-    void setBond(TersoffBond* bond, int atomIndex, const Neighbor* neighbor);
+    void setBondsForAnAtom(const Atom&, int& bondIndex);
 };
 #endif

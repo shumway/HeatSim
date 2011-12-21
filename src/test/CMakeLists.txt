@@ -54,7 +54,7 @@ endif()
       ${SRC_DIR}/Displacement.cpp
       TotalEnergyTest.cpp
       ${SRC_DIR}/TotalEnergy.cpp
-      StructureTest.cpp
+      BondGeometryTest.cpp
       DimerTestStructure.cpp
       ${SRC_DIR}/BondList.cpp
       ${SRC_DIR}/BondGeometry.cpp
