@@ -1,11 +1,9 @@
 #include <gtest/gtest.h>
+#include "BondGeometry.h"
 #include "Structure.h"
 #include "TersoffBond.h"
-#include "NeighborList.h"
-#include "Coordinates.h"
-#include "Location.h"
 #include "BondList.h"
-#include "BondGeometry.h"
+#include "NeighborList.h"
 
 #include "GeStructureBuilder.h"
 
