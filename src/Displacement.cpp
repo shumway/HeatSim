@@ -22,3 +22,16 @@ std::ostream& operator<<(std::ostream& os, const Displacement& disp) {
     os << "(" << disp.x << ", " << disp.y << ", " << disp.z << ")";
     return os;
 }
+
+Displacement& Displacement::operator +=(const Displacement& disp) {
+    this->x += disp.x; this->y += disp.y; this->z += disp.z;
+    return *this;
+}
+
+Displacement Displacement::operator *(const double scale) const {
+    Displacement result(*this);
+    result.x *= scale;
+    result.y *= scale;
+    result.z *= scale;
+    return result;
+}

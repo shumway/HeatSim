@@ -9,10 +9,14 @@ public:
     Displacement();
     Displacement(double x, double y, double z);
     Displacement(const Location& to, const Location& from);
+
+    bool operator==(const Displacement& disp) const;
+    Displacement& operator+=(const Displacement& disp);
+    Displacement operator*(const double scale) const;
+
     double x;
     double y;
     double z;
-    bool operator==(const Displacement& disp) const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Displacement& disp);

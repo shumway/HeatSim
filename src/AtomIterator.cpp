@@ -6,12 +6,13 @@
 #include "Neighbor.h"
 #include "Location.h"
 #include "Displacement.h"
+#include "LatticeVectors.h"
 
 AtomIterator::AtomIterator(const Coordinates* coordinates,
-        const NeighborList* neighborList)
+        const NeighborList* neighborList, const LatticeVectors* latticeVectors)
 :   currentIndex(0), atomCount(coordinates->getAtomCount()),
     coordinates(coordinates), neighborList(neighborList),
-    atom(new Atom()) {
+    latticeVectors(latticeVectors), atom(new Atom()) {
 
 }
 
@@ -42,6 +43,12 @@ void AtomIterator::updateAtomObject() {
         const Location neighborLocation = coordinates->getLocation(neighbor->index);
 
         Displacement displacement(neighborLocation, atomLocation);
+
+        if (latticeVectors!=0) {
+            displacement += latticeVectors->getVector(0) * neighbor->delta.x;
+            displacement += latticeVectors->getVector(1) * neighbor->delta.y;
+            displacement += latticeVectors->getVector(2) * neighbor->delta.z;
+        }
         atom->setDisplacement(neighborIndex, displacement);
     }
 }

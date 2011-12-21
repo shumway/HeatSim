@@ -44,6 +44,6 @@ int Structure::getAtomCount() const {
 }
 
 AtomIterator Structure::getAtomIterator() const {
-    AtomIterator iterator(coordinates, neighborList);
+    AtomIterator iterator(coordinates, neighborList, latticeVectors);
     return iterator;
 }
