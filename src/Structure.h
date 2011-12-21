@@ -5,11 +5,12 @@ class Coordinates;
 class LatticeVectors;
 class NeighborList;
 class Neighbor;
+class AtomIterator;
 
 class Structure {
 public:
     Structure();
-    ~Structure();
+    virtual ~Structure();
 
     void setCoordinates(Coordinates* coordinates);
     Coordinates* getCoordinates();
@@ -17,6 +18,9 @@ public:
     const LatticeVectors* getLatticeVectors() const;
     void setNeighborList(const NeighborList* neighborList);
     const NeighborList* getNeighborList() const;
+
+    int getAtomCount() const;
+    AtomIterator getAtomIterator() const;
 private:
     Coordinates* coordinates;
     const LatticeVectors* latticeVectors;

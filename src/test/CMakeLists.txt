@@ -55,8 +55,12 @@ endif()
       TotalEnergyTest.cpp
       ${SRC_DIR}/TotalEnergy.cpp
       StructureTest.cpp
+      DimerTestStructure.cpp
       ${SRC_DIR}/BondList.cpp
       ${SRC_DIR}/BondGeometry.cpp
+      AtomIteratorTest.cpp
+      ${SRC_DIR}/AtomIterator.cpp
+      ${SRC_DIR}/Atom.cpp
   )
   target_link_libraries(heatSimTest ${GTEST_BOTH_LIBRARIES})
   

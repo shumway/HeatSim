@@ -3,6 +3,7 @@
 #include "LatticeVectors.h"
 #include "NeighborList.h"
 #include "Neighbor.h"
+#include "AtomIterator.h"
 
 Structure::Structure()
     :   coordinates(0), latticeVectors(0), neighborList(0) {
@@ -38,3 +39,11 @@ const NeighborList* Structure::getNeighborList() const {
     return neighborList;
 }
 
+int Structure::getAtomCount() const {
+    return coordinates->getAtomCount();
+}
+
+AtomIterator Structure::getAtomIterator() const {
+    AtomIterator iterator(coordinates, neighborList);
+    return iterator;
+}
