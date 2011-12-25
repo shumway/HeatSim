@@ -6,6 +6,7 @@
 #include "Atom.h"
 
 #include <iostream>
+#include <cmath>
 
 namespace {
 

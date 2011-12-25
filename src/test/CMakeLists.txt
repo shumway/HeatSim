@@ -62,7 +62,7 @@ endif()
       ${SRC_DIR}/AtomIterator.cpp
       ${SRC_DIR}/Atom.cpp
   )
-  target_link_libraries(heatSimTest ${GTEST_BOTH_LIBRARIES})
+  target_link_libraries(heatSimTest ${GTEST_BOTH_LIBRARIES} -lpthread)
   
   target_link_libraries(heatSimTest ${BLAS_LIB})
   target_link_libraries(heatSimTest ${LAPACK_LIB})

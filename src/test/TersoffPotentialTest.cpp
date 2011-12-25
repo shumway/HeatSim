@@ -2,6 +2,7 @@
 
 #include "TersoffPotential.h"
 #include "TersoffBond.h"
+#include <cmath>
 
 namespace {
 

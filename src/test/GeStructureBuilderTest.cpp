@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include <sstream>
+#include <cmath>
 #include "GeStructureBuilder.h"
 #include "Structure.h"
 #include "Coordinates.h"
