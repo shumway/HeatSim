@@ -1,3 +1,4 @@
+set(GTEST_FOUND "")
 find_package(GTest QUIET)
 
 if(GTEST_FOUND)
@@ -22,17 +23,53 @@ find_path(GMOCK_INCLUDE_DIR gmock/gmock.h
         ${GMOCK_ROOT}/include
 )
 if(NOT DEFINED GMOCK_INCLUDE_DIR)
-	MESSAGE(SEND_ERROR "Google mock include path not Set to GMOCK_INCLUDE_DIR")	
+	MESSAGE(SEND_ERROR "Google mock include path not set to GMOCK_INCLUDE_DIR")	
 endif()	
 
-  set(SRC_DIR ${TDMSREADER_SOURCE_DIR}/src)
-
+  set(SRC_DIR ${HEATSIM_SOURCE_DIR}/src)
+  include_directories(${SRC_DIR})
 
   add_executable(heatSimTest
-      test.cpp
+      TersoffPotentialTest.cpp
+      ${SRC_DIR}/TersoffPotential.cpp
+      ${SRC_DIR}/TersoffBond.cpp
+      DispersionCurveWriterTest.cpp
+      ${SRC_DIR}/DispersionCurveWriter.cpp
+      DynamicalMatrixTest.cpp
+      ${SRC_DIR}/DynamicalMatrix.cpp
+      CoordinatesTest.cpp
+      ${SRC_DIR}/Location.cpp
+      ${SRC_DIR}/Coordinates.cpp
+      MatrixTest.cpp
+      ${SRC_DIR}/Matrix.cpp
+      ${SRC_DIR}/EigenvalueSolution.cpp
+      NeighborListTest.cpp
+      ${SRC_DIR}/NeighborList.cpp
+      POSCARReaderTest.cpp
+      ${SRC_DIR}/POSCARReader.cpp
+      GeStructureBuilderTest.cpp
+      ${SRC_DIR}/Structure.cpp
+      ${SRC_DIR}/GeStructureBuilder.cpp
+      ${SRC_DIR}/LatticeVectors.cpp
+      ${SRC_DIR}/Displacement.cpp
+      TotalEnergyTest.cpp
+      ${SRC_DIR}/TotalEnergy.cpp
+      BondGeometryTest.cpp
+      DimerTestStructure.cpp
+      ${SRC_DIR}/BondList.cpp
+      ${SRC_DIR}/BondGeometry.cpp
+      AtomIteratorTest.cpp
+      ${SRC_DIR}/AtomIterator.cpp
+      ${SRC_DIR}/Atom.cpp
   )
-  target_link_libraries(heatSimTest ${GTEST_BOTH_LIBRARIES} -lpthread)
+  target_link_libraries(heatSimTest ${GTEST_BOTH_LIBRARIES})
+  
+  target_link_libraries(heatSimTest ${BLAS_LIB})
+  target_link_libraries(heatSimTest ${LAPACK_LIB})
+  if (EXISTS ${LIBF2C_LIB})
+    target_link_libraries(heatSimTest ${LIBF2C_LIB})
+  endif()
 
 else()
-  message(AUTHOR_WARNING "GTEST not found, unit testing not enabled") 
-endif()
+  message(AUTHOR_WARNING "** GTEST not found, unit testing not enabled") 
+endif(GTEST_FOUND)
