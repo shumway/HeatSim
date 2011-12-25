@@ -31,7 +31,7 @@ endif()
   add_executable(heatSimTest
       test.cpp
   )
-  target_link_libraries(heatSimTest ${GTEST_BOTH_LIBRARIES})
+  target_link_libraries(heatSimTest ${GTEST_BOTH_LIBRARIES} -lpthread)
 
 else()
   message(AUTHOR_WARNING "GTEST not found, unit testing not enabled") 
