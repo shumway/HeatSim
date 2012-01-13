@@ -13,6 +13,7 @@ public:
     bool operator==(const Displacement& disp) const;
     Displacement& operator+=(const Displacement& disp);
     Displacement operator*(const double scale) const;
+    double length() const;
 
     double x;
     double y;

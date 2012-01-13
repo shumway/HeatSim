@@ -19,7 +19,7 @@ void BondGeometry::initializeBonds(int bondCount) {
     bonds = new BondList(bondCount);
 }
 
-void BondGeometry::calculateCurrentBondGeometry(Structure& structure) {
+void BondGeometry::calculateCurrentBondGeometry(const Structure& structure) {
     int bondIndex = 0;
     for (AtomIterator iterator = structure.getAtomIterator();
             !iterator.isDone(); iterator.next()) {
@@ -32,7 +32,7 @@ void BondGeometry::setBondsForAnAtom(const Atom& atom, int& bondIndex) {
     double distance[4];
     const int neighborCount = atom.getNeighborCount();
     for (int i = 0; i < neighborCount; ++i) {
-        distance[i] = sqrt(dot(atom.getDisplacement(i),atom.getDisplacement(i)));
+        distance[i] = atom.getDisplacement(i).length();
     }
     for (int i = 0; i < neighborCount; ++i) {
         TersoffBond& bond = *bonds->getBond(bondIndex);

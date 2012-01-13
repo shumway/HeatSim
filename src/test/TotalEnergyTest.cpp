@@ -2,13 +2,14 @@
 #include "TotalEnergy.h"
 #include "Structure.h"
 #include "TersoffPotential.h"
+#include "GeStructureBuilder.h"
 
 namespace {
 
 class TotalEnergyTest: public ::testing::Test {
 protected:
     virtual void SetUp() {
-        structure = makeDimer();
+        structure = GeStructureBuilder::makeNewStructure();
         potential = new TersoffPotential();
         totalEnergy = new TotalEnergy(structure, potential);
     }
@@ -23,15 +24,11 @@ protected:
     Structure* structure;
     TersoffPotential* potential;
 
-    Structure* makeDimer() {
-        Structure* structure = new Structure();
-        return structure;
-    }
 };
 
 TEST_F(TotalEnergyTest, testInitialTotalEnergy) {
     double energy = totalEnergy->getEnergy();
-    ASSERT_FLOAT_EQ(0.0, energy);
+    ASSERT_FLOAT_EQ(-0.070740113832587104 * 4, energy);
 }
 
 

@@ -3,6 +3,7 @@
 
 class Structure;
 class TersoffPotential;
+class BondGeometry;
 
 class TotalEnergy {
 public:
@@ -12,7 +13,8 @@ public:
     double getEnergy() const;
 private:
 
-    const Structure* structure;
-    const TersoffPotential* potential;
+    const Structure *structure;
+    const TersoffPotential *potential;
+    BondGeometry *bondGeometry;
 };
 #endif

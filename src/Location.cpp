@@ -1,4 +1,5 @@
 #include "Location.h"
+#include "Displacement.h"
 
 Location::Location(double x, double y, double z)
     :   x(x), y(y), z(z) {
@@ -17,3 +18,12 @@ std::ostream& operator<<(std::ostream& os, const Location& loc) {
     os << "(" << loc.x << ", " << loc.y << ", " << loc.z << ")";
     return os;
 }
+
+Location & Location::operator +=(const Displacement & displacement) {
+    x += displacement.x;
+    y += displacement.y;
+    z += displacement.z;
+    return *this;
+}
+
+

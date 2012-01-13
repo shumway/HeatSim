@@ -1,5 +1,6 @@
 #include "Displacement.h"
 #include "Location.h"
+#include <cmath>
 
 Displacement::Displacement(double x, double y, double z)
     :   x(x), y(y), z(z) {
@@ -39,5 +40,11 @@ Displacement Displacement::operator *(const double scale) const {
 double dot(const Displacement & d1, const Displacement & d2) {
     return d1.x*d2.x + d1.y*d2.y + d1.z*d2.z;
 }
+
+double Displacement::length() const {
+    return sqrt(x*x + y*y + z*z);
+}
+
+
 
 

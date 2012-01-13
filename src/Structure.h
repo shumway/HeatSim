@@ -21,6 +21,7 @@ public:
 
     int getAtomCount() const;
     AtomIterator getAtomIterator() const;
+    int getBondCount() const;
 private:
     Coordinates* coordinates;
     const LatticeVectors* latticeVectors;

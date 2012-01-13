@@ -12,7 +12,7 @@ public:
 
     void initializeBonds(int bondCount);
 
-    void calculateCurrentBondGeometry(Structure& structure);
+    void calculateCurrentBondGeometry(const Structure& structure);
 
     const BondList* getBonds() const;
 

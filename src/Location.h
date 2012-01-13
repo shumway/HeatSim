@@ -2,6 +2,7 @@
 #define __Location_h_
 
 #include <iostream>
+class Displacement;
 
 class Location {
 public:
@@ -9,6 +10,8 @@ public:
     Location();
 
     bool operator==(const Location& loc2) const;
+
+    Location& operator+=(const Displacement& displacement);
 
     double x;
     double y;

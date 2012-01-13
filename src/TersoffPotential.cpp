@@ -53,6 +53,6 @@ void TersoffPotential::initializeForGermainium() {
     inverseCutoffDifference = 1. / (outerCutoff - innerCutoff);
 }
 
-const double TersoffPotential::angstromPerBohr = 1. / 0.529177;
+const double TersoffPotential::angstromPerBohr = 0.529177;
 const double TersoffPotential::eVPerHartree = 27.211396;
 const double TersoffPotential::PI = acos(-1.0);

@@ -47,3 +47,9 @@ AtomIterator Structure::getAtomIterator() const {
     AtomIterator iterator(coordinates, neighborList, latticeVectors);
     return iterator;
 }
+
+int Structure::getBondCount() const {
+    return neighborList->getNeighborCount();
+}
+
+

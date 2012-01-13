@@ -3,6 +3,7 @@
 #include "TersoffPotential.h"
 #include "TersoffBond.h"
 #include <cmath>
+#include "GeStructureBuilder.h"
 
 namespace {
 
@@ -52,7 +53,7 @@ TEST_F(TersoffPotentialTest, TestCutoffHalfWayBetweenCutoffs) {
     double rout = tersoff->getOuterCutoff();
     double rmid = 0.5 * (rin + rout);
     double value = tersoff->evalCutoffTerm(rmid);
-    ASSERT_DOUBLE_EQ(0.5, value);
+    ASSERT_NEAR(0.5, value, 1e-14);
 }
 
 TEST_F(TersoffPotentialTest, TestCutoffThreeFourthsBetweenCutoffs) {
@@ -61,7 +62,7 @@ TEST_F(TersoffPotentialTest, TestCutoffThreeFourthsBetweenCutoffs) {
     double rmid = 0.25 * rin + 0.75 * rout;
     double value = tersoff->evalCutoffTerm(rmid);
     double expect = 0.5 - 0.25 * sqrt(2.0);
-    ASSERT_DOUBLE_EQ(expect, value);
+    ASSERT_NEAR(expect, value, 1e-14);
 }
 
 TEST_F(TersoffPotentialTest, TestCutoffAtOuterCutoff) {
@@ -93,5 +94,16 @@ TEST_F(TersoffPotentialTest, TestPotentialAtInnerCutoff) {
     double value = tersoff->evaluatePotential(bond);
     ASSERT_NEAR(-0.059410899644855582, value, 1e-14);
 }
+
+TEST_F(TersoffPotentialTest, TestPotentialAtEquilibrium) {
+    bond.r0 = bond.r1 = bond.r2 = bond.r3 = //tersoff->getInnerCutoff()*0.8714;
+            GeStructureBuilder::bondLength;
+    std::cout << GeStructureBuilder::bondLength << std::endl;
+    std::cout << bond.r0 << std::endl;
+    std::cout << tersoff->getInnerCutoff()*0.8714 << std::endl;
+    double value = tersoff->evaluatePotential(bond);
+    ASSERT_NEAR(-0.070740113832587104, value, 1e-14);
+}
+
 
 }
