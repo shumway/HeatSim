@@ -1,14 +1,16 @@
 #ifndef __TersoffPotential_h_
 #define __TersoffPotential_h_
 
+#include "Potential.h"
 class TersoffBond;
 
-class TersoffPotential {
+class TersoffPotential : public Potential {
 public:
 
     TersoffPotential();
+    virtual ~TersoffPotential() {}
 
-    double evaluatePotential(const TersoffBond&) const;
+    virtual double evaluatePotential(const TersoffBond&) const;
 
     double getInnerCutoff() const {
         return innerCutoff;

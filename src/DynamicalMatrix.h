@@ -1,21 +1,19 @@
 #ifndef __DynamicalMatrix_h_
 #define __DynamicalMatrix_h_
 
-class Potential;
-class Coordinates;
+class TotalEnergy;
+class Structure;
 
 class DynamicalMatrix {
 public:
-    DynamicalMatrix();
+    DynamicalMatrix(const TotalEnergy*, Structure*);
     ~DynamicalMatrix();
 
-    void initialize();
-    void setPotential(const Potential*);
-    void setCoordinates(Coordinates*);
-
+    int getSize() const;
 private:
-    const Potential *potential;
-    Coordinates *coordinates;
+    const TotalEnergy *totalEnergy;
+    Structure *structure;
+    const int size;
 };
 
 #endif

@@ -35,8 +35,6 @@ endif()
       ${SRC_DIR}/TersoffBond.cpp
       DispersionCurveWriterTest.cpp
       ${SRC_DIR}/DispersionCurveWriter.cpp
-      DynamicalMatrixTest.cpp
-      ${SRC_DIR}/DynamicalMatrix.cpp
       CoordinatesTest.cpp
       ${SRC_DIR}/Location.cpp
       ${SRC_DIR}/Coordinates.cpp
@@ -52,8 +50,6 @@ endif()
       ${SRC_DIR}/GeStructureBuilder.cpp
       ${SRC_DIR}/LatticeVectors.cpp
       ${SRC_DIR}/Displacement.cpp
-      TotalEnergyTest.cpp
-      ${SRC_DIR}/TotalEnergy.cpp
       BondGeometryTest.cpp
       DimerTestStructure.cpp
       ${SRC_DIR}/BondList.cpp
@@ -61,6 +57,11 @@ endif()
       AtomIteratorTest.cpp
       ${SRC_DIR}/AtomIterator.cpp
       ${SRC_DIR}/Atom.cpp
+      TotalEnergyTest.cpp
+      ${SRC_DIR}/TotalEnergy.cpp
+      DimerSpringPotential.cpp
+      DynamicalMatrixTest.cpp
+      ${SRC_DIR}/DynamicalMatrix.cpp      
   )
   target_link_libraries(heatSimTest ${GTEST_BOTH_LIBRARIES} -lpthread)
   

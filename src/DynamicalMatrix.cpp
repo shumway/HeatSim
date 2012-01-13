@@ -1,18 +1,15 @@
 #include "DynamicalMatrix.h"
+#include "Structure.h"
 
-DynamicalMatrix::DynamicalMatrix() {
+DynamicalMatrix::DynamicalMatrix(const TotalEnergy *totalEnergy,
+        Structure *structure)
+    :   totalEnergy(totalEnergy), structure(structure),
+        size(structure->getAtomCount()*3) {
 }
 
 DynamicalMatrix::~DynamicalMatrix() {
 }
 
-void DynamicalMatrix::initialize() {
-}
-
-void DynamicalMatrix::setPotential(const Potential *potential) {
-    this->potential = potential;
-}
-
-void DynamicalMatrix::setCoordinates(Coordinates *coordinates) {
-    this->coordinates = coordinates;
+int DynamicalMatrix::getSize() const {
+    return size;
 }

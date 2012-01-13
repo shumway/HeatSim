@@ -1,11 +1,11 @@
 #include "TotalEnergy.h"
 #include "Structure.h"
-#include "TersoffPotential.h"
+#include "Potential.h"
 #include "BondGeometry.h"
 #include "BondList.h"
 
 TotalEnergy::TotalEnergy(const Structure* structure,
-        const TersoffPotential* potential)
+        const Potential* potential)
 :   structure(structure), potential(potential),
     bondGeometry(new BondGeometry(structure->getBondCount())){
 
