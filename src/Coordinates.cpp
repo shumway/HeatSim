@@ -18,7 +18,7 @@ const Location& Coordinates::getLocation(int index) const {
     return locations[index];
 }
 
-void Coordinates::shiftAtom(int index, const Displacement & delta) {
+void Coordinates::moveAtom(int index, const Displacement & delta) {
     locations[index] += delta;
 }
 

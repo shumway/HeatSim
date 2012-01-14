@@ -6,6 +6,7 @@ class LatticeVectors;
 class NeighborList;
 class Neighbor;
 class AtomIterator;
+class Displacement;
 
 class Structure {
 public:
@@ -22,6 +23,8 @@ public:
     int getAtomCount() const;
     AtomIterator getAtomIterator() const;
     int getBondCount() const;
+
+    void moveAtom(int index, const Displacement&);
 private:
     Coordinates* coordinates;
     const LatticeVectors* latticeVectors;

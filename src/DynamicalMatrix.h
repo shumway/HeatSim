@@ -6,7 +6,6 @@
 class TotalEnergy;
 class Structure;
 class Matrix;
-class Coordinates;
 class Displacement;
 
 class DynamicalMatrix {
@@ -22,9 +21,11 @@ private:
     Structure *structure;
     const int atomCount;
     const int size;
+    double delta;
+    Displacement* displacement;
     Matrix *matrix;
     double *frequency;
-    void calculateMatrixElement(Coordinates *& coordinates, int index1, Displacement & displacement1, int index2, Displacement & displacement2, double delta);
+    void calculateMatrixElement(int index1, int index2);
     void calculateMatrix(double delta);
 };
 

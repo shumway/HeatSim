@@ -9,7 +9,7 @@ public:
     Coordinates(int npart);
     ~Coordinates();
     void setCartesianLocation(int index, const Location&);
-    void shiftAtom(int index, const Displacement&);
+    void moveAtom(int index, const Displacement&);
     const Location& getLocation(int index) const;
     int getAtomCount() const;
 private:

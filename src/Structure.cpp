@@ -52,4 +52,10 @@ int Structure::getBondCount() const {
     return neighborList->getNeighborCount();
 }
 
+void Structure::moveAtom(int index, const Displacement & delta) {
+    coordinates->moveAtom(index, delta);
+}
+
+
+
 
