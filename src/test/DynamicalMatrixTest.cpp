@@ -47,7 +47,8 @@ TEST_F(DynamicalMatrixTest, testLowestFreqencyIsZero) {
 TEST_F(DynamicalMatrixTest, testVibrationalFrequency) {
     const double delta = 1e-6;
     matrix->calculate(delta);
-    double highFrequency = matrix->getFrequency(1);
+    int lastIndex = matrix->getSize() - 1;
+    double highFrequency = matrix->getFrequency(lastIndex);
     double reducedMass = 0.5;
     double omega = sqrt(springConstant / reducedMass);
     ASSERT_NEAR(omega, highFrequency, 1e-5);
