@@ -1,5 +1,6 @@
 #include "Coordinates.h"
 #include "Location.h"
+#include "Displacement.h"
 
 Coordinates::Coordinates(int npart)
     :   npart(npart), locations(new Location[npart]) {
@@ -15,6 +16,10 @@ void Coordinates::setCartesianLocation(int index, const Location& location) {
 
 const Location& Coordinates::getLocation(int index) const {
     return locations[index];
+}
+
+void Coordinates::shiftAtom(int index, const Displacement & delta) {
+    locations[index] += delta;
 }
 
 int Coordinates::getAtomCount() const {

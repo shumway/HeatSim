@@ -26,4 +26,9 @@ Location & Location::operator +=(const Displacement & displacement) {
     return *this;
 }
 
-
+Location & Location::operator -=(const Displacement & displacement) {
+    x -= displacement.x;
+    y -= displacement.y;
+    z -= displacement.z;
+    return *this;
+}

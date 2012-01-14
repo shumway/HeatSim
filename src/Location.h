@@ -12,6 +12,7 @@ public:
     bool operator==(const Location& loc2) const;
 
     Location& operator+=(const Displacement& displacement);
+    Location& operator-=(const Displacement& displacement);
 
     double x;
     double y;
