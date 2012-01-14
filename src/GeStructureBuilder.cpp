@@ -8,7 +8,7 @@
 #include <cmath>
 
 Structure* GeStructureBuilder::makeNewStructure() {
-    Structure* structure = new Structure();
+    Structure* structure = new Structure(2);
     Coordinates* coordinates = makeNewCoordinates();
     structure->setCoordinates(coordinates);
     LatticeVectors* latticeVectors = makeNewLatticeVectors();

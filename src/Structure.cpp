@@ -5,14 +5,20 @@
 #include "Neighbor.h"
 #include "AtomIterator.h"
 
-Structure::Structure()
-    :   coordinates(0), latticeVectors(0), neighborList(0) {
+Structure::Structure(int atomCount)
+    :   atomCount(atomCount),
+        coordinates(0), latticeVectors(0), neighborList(0),
+        mass(new double [atomCount]) {
+    for (int index = 0; index < atomCount; ++index) {
+        mass[index] = 1.0;
+    }
 }
 
 Structure::~Structure() {
     delete coordinates;
     delete latticeVectors;
     delete neighborList;
+    delete mass;
 }
 
 void Structure::setCoordinates(Coordinates* coordinates) {
@@ -40,7 +46,7 @@ const NeighborList* Structure::getNeighborList() const {
 }
 
 int Structure::getAtomCount() const {
-    return coordinates->getAtomCount();
+    return atomCount;
 }
 
 AtomIterator Structure::getAtomIterator() const {
@@ -55,6 +61,18 @@ int Structure::getBondCount() const {
 void Structure::moveAtom(int index, const Displacement & delta) {
     coordinates->moveAtom(index, delta);
 }
+
+void Structure::setMass(int index, double mass) {
+    this->mass[index] = mass;
+}
+
+double Structure::getMass(int index) const {
+    return mass[index];
+}
+
+
+
+
 
 
 

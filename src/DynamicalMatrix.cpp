@@ -57,20 +57,22 @@ void DynamicalMatrix::calculateMatrixElement(int index1, int index2) {
     int atomIndex2 = index2 / 3;
     Displacement &displacement1(displacement[index1%3]);
     Displacement &displacement2(displacement[index2%3]);
+    double mass1 = structure->getMass(atomIndex1);
+    double mass2 = structure->getMass(atomIndex2);
 
     structure->moveAtom(atomIndex1, displacement1);
     structure->moveAtom(atomIndex2, displacement2);
     value += totalEnergy->getEnergy();
-    structure->moveAtom(atomIndex1, displacement1 * (-2));
+    structure->moveAtom(atomIndex1, displacement1 * -2);
     value -= totalEnergy->getEnergy();
     structure->moveAtom(atomIndex1, displacement1 * 2);
-    structure->moveAtom(atomIndex2, displacement2 * (-2));
+    structure->moveAtom(atomIndex2, displacement2 * -2);
     value -= totalEnergy->getEnergy();
-    structure->moveAtom(atomIndex1, displacement1 * (-2));
+    structure->moveAtom(atomIndex1, displacement1 * -2);
     value += totalEnergy->getEnergy();
     structure->moveAtom(atomIndex1, displacement1);
     structure->moveAtom(atomIndex2, displacement2);
-    value /= 4 * delta * delta;
+    value /= 4 * delta * delta * sqrt(mass1 * mass2);
     (*matrix)(index1, index2) = value;
 }
 

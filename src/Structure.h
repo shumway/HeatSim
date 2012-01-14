@@ -10,7 +10,7 @@ class Displacement;
 
 class Structure {
 public:
-    Structure();
+    Structure(int natom);
     virtual ~Structure();
 
     void setCoordinates(Coordinates* coordinates);
@@ -25,9 +25,13 @@ public:
     int getBondCount() const;
 
     void moveAtom(int index, const Displacement&);
+    void setMass(int index, double mass);
+    double getMass(int index) const;
 private:
+    const int atomCount;
     Coordinates* coordinates;
     const LatticeVectors* latticeVectors;
     const NeighborList* neighborList;
+    double *mass;
 };
 #endif
