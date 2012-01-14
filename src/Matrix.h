@@ -10,6 +10,7 @@ public:
 
     double& operator()(int row, int col);
 
+    void diagonalize(EigenvalueSolution *solution) const;
     EigenvalueSolution* diagonalize() const;
 private:
     int size;

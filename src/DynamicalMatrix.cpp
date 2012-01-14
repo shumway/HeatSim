@@ -11,12 +11,14 @@ DynamicalMatrix::DynamicalMatrix(const TotalEnergy *totalEnergy,
     :   totalEnergy(totalEnergy), structure(structure),
         atomCount(structure->getAtomCount()),
         size(atomCount*3), displacement(new Displacement[3]),
-        matrix(new Matrix(size)), frequency(new double[size]) {
+        matrix(new Matrix(size)), solution(new EigenvalueSolution(size)),
+        frequency(new double[size]) {
 }
 
 DynamicalMatrix::~DynamicalMatrix() {
     delete displacement;
     delete matrix;
+    delete solution;
     delete frequency;
 }
 
@@ -26,15 +28,13 @@ int DynamicalMatrix::getSize() const {
 
 void DynamicalMatrix::calculate(double delta) {
     calculateMatrix(delta);
-    EigenvalueSolution *solution = matrix->diagonalize();
+    matrix->diagonalize(solution);
     double *eigenvalue = solution->getEigenvalueData();
     for (int i = 0; i < size; ++i) {
         frequency[i] = sqrt(fabs(eigenvalue[i]))
                 * (eigenvalue[i] > 0 ? 1 : -1);
     }
-    delete solution;
 }
-
 
 void DynamicalMatrix::calculateMatrix(double delta) {
     this->delta = delta;
@@ -43,13 +43,12 @@ void DynamicalMatrix::calculateMatrix(double delta) {
     displacement[1] = Displacement(0.0, delta, 0.0);
     displacement[2] = Displacement(0.0, 0.0, delta);
 
-    for (int index1 = 0; index1 < size; ++index1) {
-        for (int index2 = 0; index2 < size; ++index2) {
+    for (int index2 = 0; index2 < size; ++index2) {
+        for (int index1 = 0; index1 <= index2; ++index1) {
             calculateMatrixElement(index1, index2);
         }
     }
 }
-
 
 void DynamicalMatrix::calculateMatrixElement(int index1, int index2) {
     double value = 0;

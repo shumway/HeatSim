@@ -69,11 +69,3 @@ void Structure::setMass(int index, double mass) {
 double Structure::getMass(int index) const {
     return mass[index];
 }
-
-
-
-
-
-
-
-

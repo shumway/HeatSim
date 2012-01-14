@@ -17,8 +17,6 @@ bool Displacement::operator==(const Displacement& disp2) const {
     return x==disp2.x && y==disp2.y && z==disp2.z;
 }
 
-
-
 std::ostream& operator<<(std::ostream& os, const Displacement& disp) {
     os << "(" << disp.x << ", " << disp.y << ", " << disp.z << ")";
     return os;
@@ -44,7 +42,3 @@ double dot(const Displacement & d1, const Displacement & d2) {
 double Displacement::length() const {
     return sqrt(x*x + y*y + z*z);
 }
-
-
-
-

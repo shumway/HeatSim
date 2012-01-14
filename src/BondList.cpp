@@ -21,5 +21,3 @@ int BondList::getCount() const
 {
     return count;
 }
-
-

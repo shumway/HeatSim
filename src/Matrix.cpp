@@ -26,19 +26,23 @@ double& Matrix::operator()(int row, int col) {
     return data[row + size * col];
 }
 
-EigenvalueSolution* Matrix::diagonalize() const {
-    EigenvalueSolution* solution = new EigenvalueSolution(size);
+void Matrix::diagonalize(EigenvalueSolution *solution) const
+{
     double *eigenvalues = solution->getEigenvalueData();
     double *eigenvectors = solution->getEigenvectorData();
-    for (int i = 0; i < size*size; ++i) {
+    for(int i = 0;i < size * size;++i){
         eigenvectors[i] = data[i];
     }
-    const char jobz='V', uplo='U';
+    const char jobz = 'V', uplo = 'U';
     int info;
-    int lwork = 10*size;
-    double* work = new double[lwork];
-    dsyev_(&jobz, &uplo, &size, eigenvectors, &size, eigenvalues,
-           work, &lwork, &info);
+    int lwork = 10 * size;
+    double *work = new double[lwork];
+    dsyev_(&jobz, &uplo, &size, eigenvectors, &size, eigenvalues, work, &lwork, &info);
     delete [] work;
+}
+
+EigenvalueSolution* Matrix::diagonalize() const {
+    EigenvalueSolution* solution = new EigenvalueSolution(size);
+    diagonalize(solution);
     return solution;
 }

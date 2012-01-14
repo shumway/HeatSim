@@ -7,6 +7,7 @@ class TotalEnergy;
 class Structure;
 class Matrix;
 class Displacement;
+class EigenvalueSolution;
 
 class DynamicalMatrix {
 public:
@@ -24,9 +25,9 @@ private:
     double delta;
     Displacement* displacement;
     Matrix *matrix;
+    EigenvalueSolution *solution;
     double *frequency;
     void calculateMatrixElement(int index1, int index2);
     void calculateMatrix(double delta);
 };
-
 #endif

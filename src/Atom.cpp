@@ -15,11 +15,3 @@ const Displacement& Atom::getDisplacement(int index) const {
 void Atom::setDisplacement(int index, const Displacement& value) {
     displacement[index] = value;
 }
-
-
-
-
-
-
-
-
