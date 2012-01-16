@@ -45,7 +45,7 @@ TEST_F(TotalEnergyTest, testGermaniumTotalEnergy) {
     potential = new TersoffPotential();
     totalEnergy = new TotalEnergy(structure, potential);
     double energy = totalEnergy->getEnergy();
-    ASSERT_FLOAT_EQ(-0.070740113832587104 * 4, energy);
+    ASSERT_DOUBLE_EQ(-0.070740113832587104 * 4, energy);
 }
 
 TEST_F(TotalEnergyTest, testDimerTotalEnergy) {
@@ -53,7 +53,7 @@ TEST_F(TotalEnergyTest, testDimerTotalEnergy) {
     potential = new DimerSpringPotential(1.37);
     totalEnergy = new TotalEnergy(structure, potential);
     double energy = totalEnergy->getEnergy();
-    ASSERT_FLOAT_EQ(0.0, energy);
+    ASSERT_DOUBLE_EQ(0.0, energy);
 }
 
 TEST_F(TotalEnergyTest, testStretchedDimerTotalEnergy) {
@@ -62,7 +62,7 @@ TEST_F(TotalEnergyTest, testStretchedDimerTotalEnergy) {
     potential = new DimerSpringPotential(1.37);
     totalEnergy = new TotalEnergy(structure, potential);
     double energy = totalEnergy->getEnergy();
-    ASSERT_FLOAT_EQ(0.5 * 1.37 * 0.01, energy);
+    ASSERT_DOUBLE_EQ(0.5 * 1.37 * 0.01, energy);
 }
 
 }

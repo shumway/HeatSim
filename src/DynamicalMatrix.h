@@ -1,8 +1,6 @@
 #ifndef __DynamicalMatrix_h_
 #define __DynamicalMatrix_h_
 
-#include <blitz/array.h>
-
 class TotalEnergy;
 class Structure;
 class Matrix;

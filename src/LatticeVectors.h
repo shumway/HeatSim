@@ -1,7 +1,7 @@
 #ifndef LATTICEVECTORS_H_
 #define LATTICEVECTORS_H_
 
-#include "Displacement.h";
+#include "Displacement.h"
 
 class LatticeVectors {
 public:
