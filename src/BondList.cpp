@@ -17,7 +17,6 @@ const TersoffBond* BondList::getBond(int index) const {
     return &bonds[index];
 }
 
-int BondList::getCount() const
-{
+int BondList::getCount() const {
     return count;
 }

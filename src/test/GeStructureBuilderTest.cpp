@@ -48,4 +48,10 @@ TEST_F(GeStructureBuilderTest, testNewLatticeVectors) {
     ASSERT_EQ(Displacement(0.0, a/2, a/2), latticeVectors->getVector(2));
 }
 
+TEST_F(GeStructureBuilderTest, testAtomicMasses) {
+    const double amu = 1822.88839;
+    ASSERT_DOUBLE_EQ(72.63*amu, structure->getMass(0));
+    ASSERT_DOUBLE_EQ(72.63*amu, structure->getMass(1));
+}
+
 }

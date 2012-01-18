@@ -2,7 +2,7 @@
 
 EigenvalueSolution::EigenvalueSolution(int size)
     :   size(size), eigenvalueData(new double[size]),
-        eigenvectorData(new double[size*size]) {
+        eigenvectorData(new Complex[size*size]) {
 }
 
 EigenvalueSolution::~EigenvalueSolution() {
@@ -18,6 +18,6 @@ double* EigenvalueSolution::getEigenvalueData() {
     return eigenvalueData;
 }
 
-double* EigenvalueSolution::getEigenvectorData() {
+EigenvalueSolution::Complex* EigenvalueSolution::getEigenvectorData() {
     return eigenvectorData;
 }

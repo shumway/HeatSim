@@ -12,7 +12,7 @@ public:
     const TersoffBond* getBond(int index) const;
     int getCount() const;
 private:
-    TersoffBond* bonds;
     int count;
+    TersoffBond* bonds;
 };
 #endif

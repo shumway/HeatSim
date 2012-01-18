@@ -15,6 +15,10 @@ Structure* GeStructureBuilder::makeNewStructure() {
     structure->setLatticeVectors(latticeVectors);
     NeighborList* neighborList = makeNewNeighborList();
     structure->setNeighborList(neighborList);
+    const double amu = 1822.88839;
+    const double mass = 72.63 * amu;
+    structure->setMass(0, mass);
+    structure->setMass(1, mass);
     return structure;
 }
 
