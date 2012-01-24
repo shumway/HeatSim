@@ -14,3 +14,9 @@ const Displacement& LatticeVectors::getVector(int index) const {
         return a3;
     }
 }
+
+double LatticeVectors::getSignedVolume() const {
+    return a1.x * (a2.y * a3.z - a2.z * a3.y)
+            + a2.x * (a3.y * a1.z - a1.z * a3.y)
+            + a3.x * (a1.y * a2.z - a2.z * a1.y);
+}

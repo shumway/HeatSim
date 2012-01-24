@@ -8,6 +8,7 @@ public:
     LatticeVectors(const Displacement& a1,
             const Displacement& a2,const Displacement& a3);
     const Displacement& getVector(int index) const;
+    double getSignedVolume() const;
 private:
     Displacement a1;
     Displacement a2;

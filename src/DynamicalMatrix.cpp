@@ -26,8 +26,7 @@ int DynamicalMatrix::getSize() const {
     return size;
 }
 
-void DynamicalMatrix::calculate(double delta) {
-    calculateMatrix(delta);
+void DynamicalMatrix::diagonalizeAtKPoint(const KVector &kvector) {
     matrix->diagonalize(solution);
     double *eigenvalue = solution->getEigenvalueData();
     for (int i = 0; i < size; ++i) {
@@ -36,7 +35,7 @@ void DynamicalMatrix::calculate(double delta) {
     }
 }
 
-void DynamicalMatrix::calculateMatrix(double delta) {
+void DynamicalMatrix::calculateDynamicalMatrix(double delta) {
     this->delta = delta;
 
     displacement[0] = Displacement(delta, 0.0, 0.0);

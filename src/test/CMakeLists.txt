@@ -61,7 +61,10 @@ endif()
       ${SRC_DIR}/TotalEnergy.cpp
       DimerSpringPotential.cpp
       DynamicalMatrixTest.cpp
-      ${SRC_DIR}/DynamicalMatrix.cpp      
+      ${SRC_DIR}/DynamicalMatrix.cpp
+      ${SRC_DIR}/KVector.cpp 
+      ReciprocalLatticeVectorsTest.cpp
+      ${SRC_DIR}/ReciprocalLatticeVectors.cpp
   )
   target_link_libraries(heatSimTest ${GTEST_BOTH_LIBRARIES} -lpthread)
   

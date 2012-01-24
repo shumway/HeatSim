@@ -2,7 +2,7 @@
 #include "EigenvalueSolution.h"
 #include <complex>
 
-extern "C" void zheev_(const char *jboz, const char *uplo, const int *n,
+extern "C" void zheev_(const char *jobz, const char *uplo, const int *n,
         Matrix::Complex* a, const int *lda, const double *w,
         Matrix::Complex *work, const int *lwork, const double *rwork,
         int *info);

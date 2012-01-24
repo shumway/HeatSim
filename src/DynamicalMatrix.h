@@ -6,6 +6,7 @@ class Structure;
 class Matrix;
 class Displacement;
 class EigenvalueSolution;
+class KVector;
 
 class DynamicalMatrix {
 public:
@@ -13,7 +14,8 @@ public:
     ~DynamicalMatrix();
 
     int getSize() const;
-    void calculate(double delta);
+    void calculateDynamicalMatrix(double delta);
+    void diagonalizeAtKPoint(const KVector&);
     double getFrequency(int index) const;
 private:
     const TotalEnergy *totalEnergy;
