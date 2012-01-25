@@ -12,6 +12,8 @@ public:
     ReciprocalLatticeVectors(const LatticeVectors&);
 
     const KVector& getVector(int index) const;
+    KVector getKVectorFromPrimativeBasis(
+            double c1, double c2, double c3) const;
 private:
     KVector b1;
     KVector b2;

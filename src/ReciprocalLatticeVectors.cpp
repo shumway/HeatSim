@@ -31,4 +31,14 @@ const KVector& ReciprocalLatticeVectors::getVector(int index) const {
     }
 }
 
+
+KVector ReciprocalLatticeVectors::getKVectorFromPrimativeBasis(
+        double c1, double c2, double c3) const {
+    KVector kvector;
+    kvector.x = c1*b1.x + c2*b2.x + c3*b3.x;
+    kvector.y = c1*b1.y + c2*b2.y + c3*b3.y;
+    kvector.z = c1*b1.z + c2*b2.z + c3*b3.z;
+    return kvector;
+}
+
 const double ReciprocalLatticeVectors::PI = 3.141592653589793;
