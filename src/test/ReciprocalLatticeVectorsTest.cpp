@@ -9,9 +9,9 @@ class ReciprocalLatticeVectorsTest: public ::testing::Test {
 protected:
 
     virtual void SetUp() {
-        Displacement a1(1.0, 0.0, 0.0);
-        Displacement a2(0.0, 1.0, 0.0);
-        Displacement a3(0.0, 0.0, 1.0);
+        Displacement a1(1.0, 2.0, 4.0);
+        Displacement a2(3.0, 1.0, 0.0);
+        Displacement a3(2.0, 3.0, 1.0);
         rvectors = new LatticeVectors(a1, a2, a3);
         kvectors = new ReciprocalLatticeVectors(*rvectors);
     }
@@ -32,6 +32,7 @@ protected:
 
 const double ReciprocalLatticeVectorsTest::PI = 3.141592653589793;
 
+
 TEST_F(ReciprocalLatticeVectorsTest, testOrthoNormalization) {
     for (int i = 0; i < 3; ++i) {
         for (int j = 0; j < 3; ++ j) {
@@ -40,8 +41,6 @@ TEST_F(ReciprocalLatticeVectorsTest, testOrthoNormalization) {
             ASSERT_NEAR(twoPiDelta(i,j), dot(k, r), 1e-14);
         }
     }
-
-
 }
 
 }

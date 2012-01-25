@@ -63,6 +63,7 @@ endif()
       DynamicalMatrixTest.cpp
       ${SRC_DIR}/DynamicalMatrix.cpp
       ${SRC_DIR}/KVector.cpp 
+      LatticeVectorsTest.cpp
       ReciprocalLatticeVectorsTest.cpp
       ${SRC_DIR}/ReciprocalLatticeVectors.cpp
   )
