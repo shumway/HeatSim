@@ -4,10 +4,12 @@
 #include "NeighborList.h"
 #include "Neighbor.h"
 #include "AtomIterator.h"
+#include "ReciprocalLatticeVectors.h"
 
 Structure::Structure(int atomCount)
     :   atomCount(atomCount),
-        coordinates(0), latticeVectors(0), neighborList(0),
+        coordinates(0), latticeVectors(0),
+        reciprocalLatticeVectors(0), neighborList(0),
         mass(new double [atomCount]) {
     for (int index = 0; index < atomCount; ++index) {
         mass[index] = 1.0;
@@ -17,6 +19,7 @@ Structure::Structure(int atomCount)
 Structure::~Structure() {
     delete coordinates;
     delete latticeVectors;
+    delete reciprocalLatticeVectors;
     delete neighborList;
     delete mass;
 }
@@ -31,6 +34,7 @@ Coordinates* Structure::getCoordinates() {
 
 void Structure::setLatticeVectors(const LatticeVectors* latticeVectors) {
     this->latticeVectors = latticeVectors;
+    reciprocalLatticeVectors = new ReciprocalLatticeVectors(*latticeVectors);
 }
 
 const LatticeVectors* Structure::getLatticeVectors() const {
@@ -64,6 +68,11 @@ void Structure::moveAtom(int index, const Displacement & delta) {
 
 void Structure::setMass(int index, double mass) {
     this->mass[index] = mass;
+}
+
+const ReciprocalLatticeVectors
+*Structure::getReciprocalLatticeVectors() const {
+    return reciprocalLatticeVectors;
 }
 
 double Structure::getMass(int index) const {

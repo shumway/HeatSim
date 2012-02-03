@@ -3,6 +3,7 @@
 
 class Coordinates;
 class LatticeVectors;
+class ReciprocalLatticeVectors;
 class NeighborList;
 class Neighbor;
 class AtomIterator;
@@ -17,6 +18,7 @@ public:
     Coordinates* getCoordinates();
     void setLatticeVectors(const LatticeVectors* latticeVectors);
     const LatticeVectors* getLatticeVectors() const;
+    const ReciprocalLatticeVectors *getReciprocalLatticeVectors() const;
     void setNeighborList(const NeighborList* neighborList);
     const NeighborList* getNeighborList() const;
 
@@ -29,9 +31,10 @@ public:
     double getMass(int index) const;
 private:
     const int atomCount;
-    Coordinates* coordinates;
-    const LatticeVectors* latticeVectors;
-    const NeighborList* neighborList;
+    Coordinates *coordinates;
+    const LatticeVectors *latticeVectors;
+    const ReciprocalLatticeVectors *reciprocalLatticeVectors;
+    const NeighborList *neighborList;
     double *mass;
 };
 #endif

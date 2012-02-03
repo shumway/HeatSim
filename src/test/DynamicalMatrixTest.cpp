@@ -8,6 +8,7 @@
 #include "GeStructureBuilder.h"
 #include "TersoffPotential.h"
 #include "KVector.h"
+#include "ReciprocalLatticeVectors.h"
 
 namespace {
 
@@ -32,11 +33,13 @@ protected:
     DynamicalMatrix *matrix;
     Potential *potential;
     Structure *structure;
+    const ReciprocalLatticeVectors *kvectors;
     TotalEnergy *totalEnergy;
     double springConstant;
     double mass0;
     double mass1;
     KVector gammaPoint;
+    static const double hartreePerCentimeterInverse;
 
     void setUpDimer() {
         structure = new DimerTestStructure();
@@ -49,11 +52,15 @@ protected:
 
     void setUpGe() {
         structure = GeStructureBuilder::makeNewStructure();
+        kvectors = structure->getReciprocalLatticeVectors();
         potential = new TersoffPotential();
         totalEnergy = new TotalEnergy(structure, potential);
         matrix = new DynamicalMatrix(totalEnergy, structure);
     }
 };
+
+const double DynamicalMatrixTest::hartreePerCentimeterInverse = 1.0 / 219474.63;
+
 
 TEST_F(DynamicalMatrixTest, testMatrixSize) {
     setUpDimer();
@@ -92,7 +99,6 @@ TEST_F(DynamicalMatrixTest, testGeOpticalPhononAtgammaPoint) {
     matrix->diagonalizeAtKPoint(gammaPoint);
     int lastIndex = matrix->getSize() - 1;
     double opticalFrequency = matrix->getFrequency(lastIndex);
-    const double hartreePerCentimeterInverse = 1.0 / 219474.63;
     ASSERT_NEAR(319.0753709186 * hartreePerCentimeterInverse, opticalFrequency, 1e-5);
 }
 
@@ -111,10 +117,11 @@ TEST_F(DynamicalMatrixTest, testDegeneracyOfGeOpticalPhononAtgammaPoint) {
 //TEST_F(DynamicalMatrixTest, testLowestFrequencyAtX) {
 //    setUpGe();
 //    const double delta = 1e-6;
-//    matrix->calculateDynamicMatrix(delta);
-//    matrix->diagonalizeAtKPoint(gammaPoint);
+//    matrix->calculateDynamicalMatrix(delta);
+//    KVector xPoint = kvectors->getKVectorFromReducedCoordinates(0.5, 0, 0.5);
+//    matrix->diagonalizeAtKPoint(xPoint);
 //    double omega = matrix->getFrequency(0);
-//    ASSERT_NEAR(100.0 * hartreePerCentimeterInverse, opticalFrequency, 1e-5);
+//    ASSERT_NEAR(100.0 * hartreePerCentimeterInverse, omega, 1e-5);
 //}
 
 }

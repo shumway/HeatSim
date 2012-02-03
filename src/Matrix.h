@@ -11,6 +11,8 @@ public:
     Matrix(int size);
     ~Matrix();
 
+    Matrix& operator=(const Matrix&);
+
     Complex& operator()(int row, int col);
 
     void diagonalize(EigenvalueSolution *solution) const;

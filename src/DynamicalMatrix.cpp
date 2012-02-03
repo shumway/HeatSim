@@ -11,13 +11,16 @@ DynamicalMatrix::DynamicalMatrix(const TotalEnergy *totalEnergy,
     :   totalEnergy(totalEnergy), structure(structure),
         atomCount(structure->getAtomCount()),
         size(atomCount*3), displacement(new Displacement[3]),
-        matrix(new Matrix(size)), solution(new EigenvalueSolution(size)),
+        matrixAtGammaPoint(new Matrix(size)),
+        matrixAtKPoint(new Matrix(size)),
+        solution(new EigenvalueSolution(size)),
         frequency(new double[size]) {
 }
 
 DynamicalMatrix::~DynamicalMatrix() {
     delete displacement;
-    delete matrix;
+    delete matrixAtGammaPoint;
+    delete matrixAtKPoint;
     delete solution;
     delete frequency;
 }
@@ -27,7 +30,8 @@ int DynamicalMatrix::getSize() const {
 }
 
 void DynamicalMatrix::diagonalizeAtKPoint(const KVector &kvector) {
-    matrix->diagonalize(solution);
+    calculateMatrixAtKPoint(kvector);
+    matrixAtKPoint->diagonalize(solution);
     double *eigenvalue = solution->getEigenvalueData();
     for (int i = 0; i < size; ++i) {
         frequency[i] = sqrt(fabs(eigenvalue[i]))
@@ -71,7 +75,11 @@ void DynamicalMatrix::calculateMatrixElement(int index1, int index2) {
     structure->moveAtom(atomIndex1, displacement1);
     structure->moveAtom(atomIndex2, displacement2);
     value /= 4 * delta * delta * sqrt(mass1 * mass2);
-    (*matrix)(index1, index2) = value;
+    (*matrixAtGammaPoint)(index1, index2) = value;
+}
+
+void DynamicalMatrix::calculateMatrixAtKPoint(const KVector& kvector) {
+    *matrixAtKPoint = *matrixAtGammaPoint;
 }
 
 double DynamicalMatrix::getFrequency(int index) const {

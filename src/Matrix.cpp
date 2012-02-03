@@ -26,7 +26,7 @@ void Matrix::diagonalize(EigenvalueSolution *solution) const
 {
     double *eigenvalues = solution->getEigenvalueData();
     Complex *eigenvectors = solution->getEigenvectorData();
-    for(int i = 0;i < size * size;++i){
+    for (int i = 0; i < size * size; ++i) {
         eigenvectors[i] = data[i];
     }
     const char jobz = 'V', uplo = 'U';
@@ -38,6 +38,13 @@ void Matrix::diagonalize(EigenvalueSolution *solution) const
             &lwork, rwork, &info);
     delete [] work;
     delete [] rwork;
+}
+
+Matrix & Matrix::operator =(const Matrix & matrix) {
+    for (int i = 0; i < size * size; ++i) {
+        data[i] = matrix.data[i];
+    }
+    return *this;
 }
 
 EigenvalueSolution* Matrix::diagonalize() const {

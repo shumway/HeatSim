@@ -24,9 +24,11 @@ private:
     const int size;
     double delta;
     Displacement* displacement;
-    Matrix *matrix;
+    Matrix *matrixAtGammaPoint;
+    Matrix *matrixAtKPoint;
     EigenvalueSolution *solution;
     double *frequency;
+    void calculateMatrixAtKPoint(const KVector&);
     void calculateMatrixElement(int index1, int index2);
     void calculateMatrix(double delta);
 };
