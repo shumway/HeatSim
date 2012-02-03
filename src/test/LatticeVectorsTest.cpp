@@ -42,7 +42,7 @@ TEST_F(LatticeVectorsTest, testDisplacementFromPrimativeBasis) {
     Displacement a2(1.0, 3.0, 3.0);
     Displacement a3(3.0, 4.0, 4.0);
     LatticeVectors cell(a1, a2, a3);
-    Displacement delta = cell.getDisplacementFromPrimativeBasis(0.1, 0.2, 0.3);
+    Displacement delta = cell.getDisplacementFromReducedCoordinates(0.1, 0.2, 0.3);
     ASSERT_NEAR(1.3, delta.x, 1e-14);
     ASSERT_NEAR(2.3, delta.y, 1e-14);
     ASSERT_NEAR(2.0, delta.z, 1e-14);

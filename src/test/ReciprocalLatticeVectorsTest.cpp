@@ -58,9 +58,9 @@ TEST_F(ReciprocalLatticeVectorsTest, testOrthoNormalization) {
     }
 }
 
-TEST_F(ReciprocalLatticeVectorsTest, testKVectorFromPrimativeBasis) {
+TEST_F(ReciprocalLatticeVectorsTest, testKVectorFromReducedCoordinates) {
     setupFCCVectors();
-    KVector k = kvectors->getKVectorFromPrimativeBasis(0.1, 0.2, 0.4);
+    KVector k = kvectors->getKVectorFromReducedCoordinates(0.1, 0.2, 0.4);
     KVector expect(3.14159265,  1.88495559, -0.62831853);
     ASSERT_NEAR(expect.x, k.x, 1e-7);
     ASSERT_NEAR(expect.y, k.y, 1e-7);

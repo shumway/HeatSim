@@ -21,7 +21,7 @@ double LatticeVectors::getSignedVolume() const {
             + a3.x * (a1.y * a2.z - a1.z * a2.y);
 }
 
-Displacement LatticeVectors::getDisplacementFromPrimativeBasis(
+Displacement LatticeVectors::getDisplacementFromReducedCoordinates(
         double c1, double c2, double c3) const {
     Displacement delta;
     delta.x = c1*a1.x + c2*a2.x + c3*a3.x;

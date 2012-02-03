@@ -32,7 +32,7 @@ const KVector& ReciprocalLatticeVectors::getVector(int index) const {
 }
 
 
-KVector ReciprocalLatticeVectors::getKVectorFromPrimativeBasis(
+KVector ReciprocalLatticeVectors::getKVectorFromReducedCoordinates(
         double c1, double c2, double c3) const {
     KVector kvector;
     kvector.x = c1*b1.x + c2*b2.x + c3*b3.x;

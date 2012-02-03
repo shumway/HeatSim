@@ -9,7 +9,7 @@ public:
             const Displacement& a2,const Displacement& a3);
     const Displacement& getVector(int index) const;
     double getSignedVolume() const;
-    Displacement getDisplacementFromPrimativeBasis(
+    Displacement getDisplacementFromReducedCoordinates(
             double c1, double c2, double c3) const;
 private:
     Displacement a1;
