@@ -114,14 +114,14 @@ TEST_F(DynamicalMatrixTest, testDegeneracyOfGeOpticalPhononAtgammaPoint) {
     ASSERT_NEAR(omega1, omega3, 1e-5);
 }
 
-//TEST_F(DynamicalMatrixTest, testLowestFrequencyAtX) {
-//    setUpGe();
-//    const double delta = 1e-6;
-//    matrix->calculateDynamicalMatrix(delta);
-//    KVector xPoint = kvectors->getKVectorFromReducedCoordinates(0.5, 0, 0.5);
-//    matrix->diagonalizeAtKPoint(xPoint);
-//    double omega = matrix->getFrequency(0);
-//    ASSERT_NEAR(100.0 * hartreePerCentimeterInverse, omega, 1e-5);
-//}
+TEST_F(DynamicalMatrixTest, testLowestFrequencyAtX) {
+    setUpGe();
+    const double delta = 1e-6;
+    matrix->calculateDynamicalMatrix(delta);
+    KVector xPoint = kvectors->getKVectorFromReducedCoordinates(0.5, 0, 0.5);
+    matrix->diagonalizeAtKPoint(xPoint);
+    double omega = matrix->getFrequency(0);
+    ASSERT_NEAR(100.0 * hartreePerCentimeterInverse, omega, 1e-5);
+}
 
 }

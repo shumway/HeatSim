@@ -20,4 +20,7 @@ public:
 };
 
 std::ostream& operator<<(std::ostream& os, const Location& loc);
+
+Displacement operator-(const Location&, const Location&);
+
 #endif

@@ -8,6 +8,7 @@ class NeighborList;
 class Neighbor;
 class AtomIterator;
 class Displacement;
+class Location;
 
 class Structure {
 public:
@@ -16,6 +17,7 @@ public:
 
     void setCoordinates(Coordinates* coordinates);
     Coordinates* getCoordinates();
+    const Location& getCoordinate(int) const;
     void setLatticeVectors(const LatticeVectors* latticeVectors);
     const LatticeVectors* getLatticeVectors() const;
     const ReciprocalLatticeVectors *getReciprocalLatticeVectors() const;

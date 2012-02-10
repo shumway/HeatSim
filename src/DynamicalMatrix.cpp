@@ -4,6 +4,8 @@
 #include "EigenvalueSolution.h"
 #include "TotalEnergy.h"
 #include "Displacement.h"
+#include "Location.h"
+#include "KVector.h"
 #include <cmath>
 
 DynamicalMatrix::DynamicalMatrix(const TotalEnergy *totalEnergy,
@@ -80,6 +82,18 @@ void DynamicalMatrix::calculateMatrixElement(int index1, int index2) {
 
 void DynamicalMatrix::calculateMatrixAtKPoint(const KVector& kvector) {
     *matrixAtKPoint = *matrixAtGammaPoint;
+    for (int index1 = 0; index1 < size; ++index1) {
+        int atomIndex1 = index1 / 3;
+        const Location r1 = structure->getCoordinate(atomIndex1);
+        for (int index2 = 0; index2 < size; ++index2) {
+            int atomIndex2 = index2 / 3;
+            const Location r2 = structure->getCoordinate(atomIndex2);
+            Displacement delta = r2 - r1;
+            double kdotr = dot(kvector,delta);
+            (*matrixAtKPoint)(index1,index2) *= exp(std::complex<double>(0.0, -kdotr));
+
+        }
+    }
 }
 
 double DynamicalMatrix::getFrequency(int index) const {

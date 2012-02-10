@@ -1,9 +1,9 @@
 #include <gtest/gtest.h>
 
 #include "DimerTestStructure.h"
-#include "GeStructureBuilder.h"
-#include "AtomIterator.h"
-#include "Atom.h"
+#include "../GeStructureBuilder.h"
+#include "../AtomIterator.h"
+#include "../Atom.h"
 
 #include <iostream>
 #include <cmath>

@@ -75,6 +75,10 @@ const ReciprocalLatticeVectors
     return reciprocalLatticeVectors;
 }
 
+const Location& Structure::getCoordinate(int index) const {
+    return coordinates->getLocation(index);
+}
+
 double Structure::getMass(int index) const {
     return mass[index];
 }

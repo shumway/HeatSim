@@ -32,3 +32,12 @@ Location & Location::operator -=(const Displacement & displacement) {
     z -= displacement.z;
     return *this;
 }
+
+Displacement operator -(const Location & r1, const Location & r2) {
+    Displacement delta;
+    delta.x = r1.x - r2.x;
+    delta.y = r1.y - r2.y;
+    delta.x = r1.z - r2.z;
+}
+
+
