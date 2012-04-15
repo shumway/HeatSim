@@ -1,9 +1,15 @@
 # Introduction
 
-This is a test project, more details to come if it works.
+This is an outreach project for the NSF grant:
+“Materials World Network: Complex Structured ‘Electron-Poor’ framwork Semiconductors with Potential for Thermoelectric Application.” NSF-MPS-DMR.
 
-Right now we are testing some TDD with Eclipse and gtest on multiple platforms. Also testing git, especially
-"git fetch upstream".
+The goal of this project is to simulate thermal transport and thermoelectric properties of materials. Currently Co-PI Prof. John Shumway and graduate student Daryn Benson are working on this computatinal project, to be joined by undergraduate Paul Campeteli in Summer 2012. We welcome inquiries from interested students, especially once the project is in a more practical, applied phase.
+
+In its current state, the code calculates phonon spectra for empirical potentials, such as the Stillinger-Weber model for Si and Ge.
+
+
+## Technical Details
+This project is utilizing Test Driven Development (TDD) in C++ with Eclipse and gtest on multiple platforms. 
 
 # Build notes
 
